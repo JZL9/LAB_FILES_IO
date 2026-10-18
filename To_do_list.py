@@ -1,11 +1,14 @@
 import os
+
+FILENAME = "to_do.txt"
+print("Welcome to the To-Do List")
+
 while True:
-    print("Welcome to the To-Do List")
     user_note = input("Do you want to add a new To-Do item? (y/n, or exit): ")
 
     if user_note == "y":
         item = input("add your To-Do List: ")
-        with open("to_do.text", "a", encoding="utf-8") as file:
+        with open(FILENAME, "a", encoding="utf-8") as file:
             file.write(item +"\n")
 
 
@@ -16,8 +19,8 @@ while True:
     elif user_note == "n":
         show = input("Do you want to list your To-Do items? (y/n): ")
         if show == "y":
-            if os.path.exists("to_do.txt"):
-                with open("to_do.text", "r", encoding="utf-8") as file:
+            if os.path.exists(FILENAME):
+                with open(FILENAME, "r", encoding="utf-8") as file:
                     for line in file:
                         print(line.strip())
             else:
